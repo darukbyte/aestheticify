@@ -1,0 +1,30 @@
+:root {
+    /*Colors*/
+    --black-color: #22283A;
+    --white-color: #FDFEFF;
+    --green-color: #67AB8A;
+    /*Font size and heights*/
+    --mouse-size: 1.4rem;
+    --mouse-height: 1.8rem;
+    --cat-size: 1.6rem;
+    --cat-height: 2.2rem;
+    --dog-size: 1.8rem;
+    --dog-height: 2.4rem;
+    --wolf-size: 2rem;
+    --wolf-height: 2.8rem;
+    --lion-size: 2.8rem;
+    --lion-height: 3.2rem;
+    --hippo-size:4rem;
+    --hippo-height:4.8rem;
+
+}
+@font-face {
+    font-family: 'fligen';
+    src: url("fonts/Fligen.otf");
+}
+
+* {
+    font-size: 62.5%;
+    margin: 0;
+    padding:0;
+}
