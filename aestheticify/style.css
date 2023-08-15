@@ -1,3 +1,5 @@
+@import url(./styles/loader.css);
+
 :root {
     /*Colors*/
     --black-color: #22283A;
@@ -24,7 +26,79 @@
 }
 
 * {
-    font-size: 62.5%;
     margin: 0;
     padding:0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    background-color: var(--black-color);
+    color: var(--white-color);
+    font-family: raleway;
+    padding: 20px;
+}
+.main-loader {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 10% 80% 10% ;
+}
+.main-loader__box {
+    height: 50px;
+    display: grid;
+    grid-column-gap: 12px;
+    grid-row-gap: 2px;
+    grid-template-rows: 50% 50%;
+    font-size: var(--cat-size);
+    line-height: 150%;
+}
+
+.main-loader__box-left {
+    justify-content: end;
+    grid-template-columns: 150px 4px;
+    transform-origin: bottom right;
+    transform: rotate(-90deg) translateX(50px);
+}
+.main-loader__box-right {
+    justify-content: start;
+    grid-template-columns: 4px 150px;
+    transform-origin: top left;
+    transform: rotate(-90deg) translateX(-60px);
+
+}
+
+.main-loader__box--bar {
+    width: 4px;
+    height: 50px;
+    background-color: var(--green-color);
+}
+.main-loader__box-left--bar {
+    grid-column: 2;
+    grid-row: 1;
+}
+.main-loader__box-right--bar {
+    grid-column: 1;
+    grid-row: 1;
+}
+.main-loader__box--title {
+    align-self: center;
+    justify-self: end;
+}
+.main-loader__box--subtitle {
+    align-self: center;
+    justify-self: end;
+    font-weight: bold;
+}
+.main-loader__center {
+    justify-self: center;
+    align-self: center;
+}
+.main-loader__box-right--title {
+    align-self: center;
+}
+.main-loader__box-right--subtitle {
+    grid-column: 2;
+    align-self: center;
+    font-weight: bold;
 }

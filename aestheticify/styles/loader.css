@@ -1,0 +1,47 @@
+.main-loader__center--cube-loader {
+    animation: cube 1.6s infinite;
+    animation-direction: alternate;
+}
+.main-loader__center--cube-loader-two {
+  animation: cube-two 1.6s infinite;
+  animation-direction: alternate;
+}
+.main-loader__center--border {
+  animation: border 1.6s infinite;
+  animation-direction: alternate;
+}
+@keyframes cube-two {
+  to {
+    transform: translateX(-42px);
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  from {
+    transform: translateX(42px);
+    opacity: 0.4;
+  }
+}
+@keyframes cube {
+  from {
+    transform: translateY(-50px);
+    opacity: 0.4;
+  } 
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(50px);
+    opacity: 0.4;
+  }
+  
+}
+@keyframes border {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
+}
