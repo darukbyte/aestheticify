@@ -49,7 +49,37 @@ body {
     padding: 20px;
     display: grid;
     grid-template-rows: 10% 80% 10%;
+    font-size: var(--cat-size);
+    position: relative;
 }
+.main-loader__logo {
+    width: 140px;
+    height: 140px;
+    display: grid;
+    justify-content: center;
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+}
+.main-loader__logo--typo {
+    font-family: fligen;
+    font-weight: 300;
+    font-size: 3.2rem;
+}
+#logo-initial {
+    opacity: 1;
+  }
+  #box {
+    justify-self: center;
+  }
+  .main-loader__logo--typo {
+    text-align: center;
+    font-size: 3.2rem;
+    opacity: 0;
+    margin: 0px;
+    translate: 0px -40px;
+  }
+
 .main-loader__box {
     width: 200px;
     height: 50px;
@@ -57,24 +87,25 @@ body {
     grid-column-gap: 12px;
     grid-row-gap: 2px;
     grid-template-rows: 50% 50%;
-    font-size: var(--cat-size);
 }
-
 .main-loader__box-left {
     justify-self: end;
     justify-content: end;
-    grid-template-columns: 150px 4px;
+    grid-template-columns: 170px 4px;
     transform-origin: bottom right;
     transform: rotate(-90deg) translateX(50px);
 }
-
 .main-loader__box-right {
     justify-content: start;
     grid-template-columns: 4px 150px;
     transform-origin: top left;
     transform: rotate(-90deg) translateX(-70px);
 }
-
+.main-loader__center {
+    justify-self: center;
+    align-self: center;
+    visibility:hidden;
+}
 .main-loader__box--bar {
     width: 4px;
     height: 50px;
@@ -96,10 +127,6 @@ body {
     justify-self: end;
     font-weight: bold;
 }
-.main-loader__center {
-    justify-self: center;
-    align-self: center;
-}
 .main-loader__box-right--title {
     align-self: center;
 }
@@ -112,7 +139,8 @@ body {
 @media (min-width: 1040px) {
     .main-loader {
         grid-template-columns: 20% 60% 20%;
-        padding: 40px 110px 40px 110px;
+        padding: 40px 80px 40px 80px;
+        font-size: var(--dog-size);
     }
     .main-loader__center {
         grid-column: 2;
@@ -121,6 +149,7 @@ body {
     }
     .main-loader__box-left {
         transform: none;
+        align-self: end;
         grid-row: 3;
         grid-column: 3;
     }
