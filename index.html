@@ -23,7 +23,7 @@
           <p class="main-loader__box--subtitle">by Darukbyte</p>
         </article>
 
-        <article class="main-loader__logo">
+        <article class="main-loading__logo">
           <svg
             id="box"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@
               fill="#FDFEFF"
             />
           </svg>
-          <h2 class="main-loader__logo--typo">AESTHETICIFY</h2>
+          <h2 class="main-loading__logo--typo">AESTHETICIFY</h2>
         </article>
 
         <article class="main-loader__center">
@@ -96,26 +96,59 @@
           <p class="main-loader__box-right--subtitle">Latin American</p>
         </article>
       </section>
+
+      <section class="hero">
+        <div class="hero__background-blur"></div>
+        <figure class="hero__background">
+          <img
+            class="hero__background--img"
+            src="https://previews.dropbox.com/p/thumb/AB8p5uGfwZZe-uiODEDvwmLqU52Ye2uDdo8KBGjIYqYPAMadLC5G2h7W20cq7xibUgy3PuczCXrdt-K3onwr95YFJ33rXy5vZbCtKRSgqezkcYVrhioCca2VtSFZdT37R0S4XoandcRkse_1rCcvElW3OoVGzTZjnq5hsUdyF68Oe8-9pFhzMoV5oc0bKJdlF2edPfPqQIlM7Dvd2hcAA0IWG-7SRri_t53JTAC9WMXbbBqEZ_NJmntHQgcttRFSR_GD1otXsmHPo7OqJILz1z9xozsvytxfZv3WjUKQN3f7Mxygo-NNGrjpgI_YC8vrRpHDm25AnnRTnOyYONFoat4V/p.png"
+            alt="Illustration Background"
+          />
+        </figure>
+      </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
+      //HTML containers
+      const loaderContainer = document.querySelector(".main-loader");
+      const loaderBox = document.querySelector(".main-loader__center");
+      const loadingLogo = document.querySelector(".main-loading__logo");
+
+      //Loading Page Code
+
+      document.onreadystatechange = () => {
+        if (document.readyState !== "complete") {
+          console.log("while is loading");
+          loaderBox.style.visibility = "hidden";
+        } else {
+          console.log("Load completed");
+          loadingLogo.style.visibility = "unset";
+        }
+      };
+
+      //funtcion to remove section from DOM
+      function removeSection() {
+        loaderContainer.remove();
+        console.log("section removed from DOM");
+      }
+
+      //Logo Animation
       let finalShape =
         "M6.71378 42.834H15.6655L11.5957 25.7L24.6172 14.2476L37.637 25.7L33.5689 42.834H42.5206L49.2344 23.0153L24.6172 0L0 23.0153L6.71378 42.834ZM6.71379 58.1311V48.9524H42.5206V58.1311H6.71379ZM0.745247 59.6619V68.8407L6.71305 73.6466L42.5199 73.4291L48.4877 67.3109V59.6619L42.5199 64.251H6.71305L0.745247 59.6619Z";
-
       let colorStroke = "#FDFEFF";
       let slowValue = "slow(0.7, 0.7, false)";
       let value = 1;
 
-      const logoTl = gsap.timeline();
-      const cuadradoTl = gsap.timeline();
-
-      //logoTl.pause();
+      //GSap Timeline for logo animation
+      const logoTl = gsap.timeline({ ease: "power2.out" });
+      const heroTl = gsap.timeline();
 
       logoTl
         .to("#logo-initial", {
           attr: { d: finalShape, fill: "none" },
           duration: 1.8,
-          //opacity: 1,
+          opacity: 1,
           stroke: colorStroke,
           strokeWidth: "1px",
           translate: "31.5% 21.5%",
@@ -127,11 +160,31 @@
           ease: slowValue,
           strokeWidth: "2px",
         })
-        .to(".main-loader__logo--typo", {
-          duration: 0.8,
+        .to(".main-loading__logo--typo", {
+          duration: 1,
           opacity: 1,
           translateY: "-26px",
           ease: slowValue,
+        })
+        .to(".main-loader__box-left", {
+          delay: 1,
+          duration: 0.4,
+          translateY: "-70px",
+          opacity: 0,
+        })
+        .to(".main-loader__box-right", {
+          duration: 0.4,
+          translateX: "-50px",
+          opacity: 0,
+        })
+        .to(".main-loading__logo", {
+          duration: 1,
+          opacity: 0,
+        })
+        .to(".main-loader", {
+          duration: 1.2,
+          opacity: 0,
+          onComplete: removeSection,
         });
     </script>
   </body>
