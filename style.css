@@ -24,7 +24,6 @@
     font-family: 'fligen';
     src: url("fonts/Fligen.otf");
 }
-
 * {
     margin: 0;
     padding:0;
@@ -34,8 +33,49 @@ html {
     font-size: 62.5%;
 }
 body {
+    background-color: var(--black-color);
     color: var(--white-color);
     font-family: raleway;
+}
+.header {
+    position: absolute;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+.header__logo{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.header__logo--title {
+    font-family: fligen;
+    font-size: var(--cat-size);
+    font-weight: 300;
+}
+.header__button {
+    width: auto;
+    font-family: raleway;
+    font-size: var(--mouse-size);
+    color: var(--white-color);
+    font-weight: 600;
+    height: 32px;
+    padding: 0px  16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: .8px solid var(--white-color);
+    border-radius: 5px;
+    text-decoration: none;
+}
+.header__button--icon {
+    background-image: url(/assets/twitter-logo.svg);
+    width: 20px;
+    height: 20px;
 }
 .main {
     width: 100%;
@@ -43,6 +83,7 @@ body {
     position: relative;
 }
 .main-loader {
+    /*visibility: hidden;*/
     width: 100%;
     height: 100vh;
     padding: 20px;
@@ -82,6 +123,7 @@ body {
     width: 200px;
     height: 50px;
     display: grid;
+    font-size: var(--cat-size);
     grid-column-gap: 12px;
     grid-row-gap: 2px;
     grid-template-rows: 50% 50%;
@@ -101,7 +143,6 @@ body {
 .main-loader__center {
     justify-self: center;
     align-self: center;
-    visibility: unset;
 }
 .main-loader__box--bar {
     width: 4px;
@@ -136,7 +177,7 @@ body {
     width: 100%;
     height: 100vh;
     position: absolute;
-    z-index: 2;
+    z-index: -1;
     background-color: rgba(34, 40, 58, 0.38);
     ;
 }
@@ -144,15 +185,82 @@ body {
     object-fit: cover;
     background-position: center center;
     position: absolute;
+    z-index: -2;
     width: 100%;
     min-height: 100vh;
     max-height: 100vh;
 }
-
+.page-content {
+    padding: 20px;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    align-items: center;
+}
+.page-content__principal-info{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 8px;
+    margin-top: 200px;
+}
+.page-content__principal-info--title {
+    width: 70%;
+    max-width: 650px;
+    font-size: var(--lion-size);
+    line-height: var(--lion-height);
+    font-weight: 400;
+    font-family: fligen;
+}
+.page-content__principal-info--paragrahp {
+    font-size: var(--cat-size);
+    line-height: 150%;
+    width: 80%;
+    max-width: 650px;
+    font-weight: 400;
+}
+.page-content__detail{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    align-self: end;
+}
+.page-content__detail-journey {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.page-content__detail-journey--bar {
+    width: 30px;
+    height: 3px;
+    background-color: var(--white-color);
+}
+.page-content__detail-journey--text {
+    font-family: fligen;
+    font-size: var(--dog-size);
+    width: 100px;
+}
 @media (min-width: 1040px) {
+    .header {
+        padding: 40px 110px;
+    }
+    .header__button{
+        gap: 10px;
+        height: 40px;
+    }
+    .header__logo--vector {
+        width: 24px;
+        height: 36px;
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .header__logo--title{
+        font-size: var(--wolf-size);
+    }
     .main-loader {
         grid-template-columns: 20% 60% 20%;
-        padding: 40px 80px 40px 80px;
+        padding: 40px 110px;
         font-size: var(--dog-size);
     }
     .main-loader__center {
@@ -165,11 +273,31 @@ body {
         align-self: end;
         grid-row: 3;
         grid-column: 3;
+        font-size: var(--dog-size);
     }
     .main-loader__box-right {
         grid-row: 3;
         grid-column: 1;
         align-self: end;
         transform: none;
+        font-size: var(--dog-size);
+    }
+    .page-content {
+        padding: 40px 110px;
+    }
+    .page-content__principal-info--title {
+        font-size: var(--hippo-size);
+        line-height: var(--hippo-height);
+    }
+    .page-content__principal-info--paragrahp {
+        font-size: var(--wolf-size);
+        line-height: 28px;
+    }
+    .page-content__detail-journey--bar {
+        width: 150px;
+    }
+    .page-content__detail-journey--text {
+        width: 140px;
+        font-size: var(--wolf-size);
     }
 }
