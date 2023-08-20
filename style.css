@@ -71,6 +71,11 @@ body {
     border: .8px solid var(--white-color);
     border-radius: 5px;
     text-decoration: none;
+    transition: all ease-in .8s;
+}
+.header__button:hover {
+    background-color: var(--green-color);
+    border: .8 solid var(--green-color);
 }
 .header__button--icon {
     background-image: url(/assets/twitter-logo.svg);
@@ -173,6 +178,9 @@ body {
     align-self: center;
     font-weight: bold;
 }
+.hero-load {
+    opacity: 0;
+}
 .hero__background-blur {
     width: 100%;
     height: 100vh;
@@ -234,11 +242,18 @@ body {
     width: 30px;
     height: 3px;
     background-color: var(--white-color);
+    transform-origin: "right",
 }
 .page-content__detail-journey--text {
     font-family: fligen;
     font-size: var(--dog-size);
+    color: var(--white-color);
     width: 100px;
+    text-decoration: none;
+    transition:ease;
+}
+.page-content__detail-journey--text:hover {
+    text-decoration: underline;
 }
 @media (min-width: 1040px) {
     .header {

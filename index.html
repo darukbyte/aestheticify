@@ -9,6 +9,7 @@
     <meta name="referrer" content="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Montserrat:wght@300;400;500;700&family=Raleway:wght@300;400;500;600;700;900&display=swap"
       rel="stylesheet"
@@ -17,7 +18,7 @@
   </head>
   <body>
     <header class="header">
-      <nav class="header__logo">
+      <nav class="header__logo hero-load">
         <figure class="header__logo--logotype">
           <img
             class="header__logo--vector"
@@ -28,7 +29,7 @@
         <h4 class="header__logo--title">AESTHETICIFY</h4>
       </nav>
 
-      <a href="#" class="header__button">
+      <a href="https://twitter.com/darukbyte" class="header__button hero-load">
         <span class="header__button--icon" aria-label="icon"></span>
         Learn more
       </a>
@@ -130,26 +131,30 @@
       </section>
 
       <section class="page-content">
-        <article class="page-content__principal-info">
+        <article class="page-content__principal-info hero-load">
           <h2 class="page-content__principal-info--title">
             Meet the convergence of blockchain, NFTs, AI, and aesthetics
           </h2>
-          <p class="page-content__principal-info--paragrahp">
+          <p class="page-content__principal-info--paragrahp hero-load">
             Elevate your digital aesthetics like never before with illustrations
             that perfectly resonate with your unique personality and style.
           </p>
         </article>
         <article class="page-content__detail">
-          <article class="main-loader__box main-loader__box-right">
+          <article class="main-loader__box hero-load main-loader__box-right">
             <div
               class="main-loader__box--bar main-loader__box-right--bar"
             ></div>
             <p class="main-loader__box-right--title">Made in</p>
             <p class="main-loader__box-right--subtitle">Latin American</p>
           </article>
-          <article class="page-content__detail-journey">
-            <div class="page-content__detail-journey--bar"></div>
-            <p class="page-content__detail-journey--text">Journey Log</p>
+          <article class="page-content__detail-journey box-hover hero-load">
+            <div class="page-content__detail-journey--bar bar"></div>
+            <a
+              href="https://darukbyte.notion.site/Aestheticify-92c71a76a21c4933ae0bb651d1cd6b1a?pvs=4"
+              class="page-content__detail-journey--text"
+              >Journey Log</a
+            >
           </article>
         </article>
       </section>
@@ -165,20 +170,32 @@
 
       document.onreadystatechange = () => {
         if (document.readyState !== "complete") {
-          console.log("while is loading");
           loaderBox.style.opacity = "1";
         } else {
-          console.log("Load completed");
-          loaderBox.style.opacity = "0";
           loadingLogo.style.visibility = "unset";
         }
       };
 
       //funtcion to remove section from DOM
       function removeSection() {
-        //loaderContainer.remove();
-        console.log("section removed from DOM");
+        loaderContainer.remove();
       }
+
+      //Hover bar animation
+      let hoverBox = document.querySelector(".box-hover");
+      let barr = document.querySelector(".bar");
+      let hoverAnimationBar = gsap.to(barr, {
+        backgroundColor: "#67AB8A",
+        height: "12px",
+        ease: Power4.easeInOut,
+        paused: true,
+      });
+
+      hoverBox.addEventListener("mouseenter", () => hoverAnimationBar.play());
+
+      hoverBox.addEventListener("mouseleave", () =>
+        hoverAnimationBar.reverse()
+      );
 
       //Logo Animation
       let finalShape =
@@ -189,9 +206,14 @@
 
       //GSap Timeline for logo animation
       const logoTl = gsap.timeline({ ease: "power2.out" });
-      const heroTl = gsap.timeline();
+      const heroTl = gsap.timeline({ ease: slowValue });
 
       logoTl
+        .to(loaderBox, {
+          opacity: 0,
+          duration: 0.6,
+          ease: slowValue,
+        })
         .to("#logo-initial", {
           attr: { d: finalShape, fill: "none" },
           duration: 1.8,
@@ -232,6 +254,12 @@
           duration: 1.2,
           opacity: 0,
           onComplete: removeSection,
+        })
+        .to(".hero-load", {
+          opacity: 1,
+          duration: 0.8,
+          translateY: "0px",
+          stagger: 0.2,
         });
     </script>
   </body>
