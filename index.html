@@ -17,8 +17,8 @@
     <title>Aestheticify</title>
   </head>
   <body>
-    <header class="header">
-      <nav class="header__logo hero-load">
+    <header class="header hero-load">
+      <nav class="header__logo">
         <figure class="header__logo--logotype">
           <img
             class="header__logo--vector"
@@ -29,7 +29,7 @@
         <h4 class="header__logo--title">AESTHETICIFY</h4>
       </nav>
 
-      <a href="https://twitter.com/darukbyte" class="header__button hero-load">
+      <a href="https://twitter.com/darukbyte" class="header__button">
         <span class="header__button--icon" aria-label="icon"></span>
         Learn more
       </a>
@@ -186,7 +186,7 @@
       let barr = document.querySelector(".bar");
       let hoverAnimationBar = gsap.to(barr, {
         backgroundColor: "#67AB8A",
-        height: "12px",
+        height: "90px",
         ease: Power4.easeInOut,
         paused: true,
       });
@@ -216,7 +216,7 @@
         })
         .to("#logo-initial", {
           attr: { d: finalShape, fill: "none" },
-          duration: 1.8,
+          duration: 1,
           opacity: 1,
           stroke: colorStroke,
           strokeWidth: "1px",
@@ -230,35 +230,35 @@
           strokeWidth: "2px",
         })
         .to(".main-loading__logo--typo", {
-          duration: 1,
+          duration: 0.4,
           opacity: 1,
           translateY: "-26px",
           ease: slowValue,
         })
         .to(".main-loader__box-left", {
-          delay: 0.4,
+          delay: 0.3,
           duration: 0.4,
           translateY: "-70px",
           opacity: 0,
         })
         .to(".right-animation__box", {
-          duration: 0.4,
+          duration: 0.3,
           translateX: "-50px",
           opacity: 0,
         })
         .to(".main-loading__logo", {
-          duration: 1,
+          duration: 0.8,
           opacity: 0,
         })
         .to(".main-loader", {
-          duration: 1.2,
+          duration: 1,
           opacity: 0,
           onComplete: removeSection,
         })
         .to(".hero-load", {
           opacity: 1,
-          duration: 0.8,
-          translateY: "0px",
+          duration: 0.3,
+          translateY: "0",
           stagger: 0.2,
         });
     </script>
