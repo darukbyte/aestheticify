@@ -4,7 +4,7 @@
     /*Colors*/
     --black-color: #22283A;
     --white-color: #FDFEFF;
-    --green-color: #67AB8A;
+    --green-color: #32CBE0;
     /*Font size and heights*/
     --mouse-size: 1.4rem;
     --mouse-height: 1.8rem;
@@ -254,6 +254,7 @@ body {
     color: var(--white-color);
     text-decoration: none;
     transition:ease;
+    transform: rotate(180deg);
 }
 .page-content__detail-journey--text:hover {
     text-decoration: underline;
