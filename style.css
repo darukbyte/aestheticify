@@ -57,6 +57,10 @@ body {
     font-size: var(--cat-size);
     font-weight: 300;
 }
+.header__logo--vector {
+    width: 20px;
+    height: 30px;
+}
 .header__button {
     width: auto;
     font-family: raleway;
